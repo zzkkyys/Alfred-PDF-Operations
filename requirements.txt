@@ -1,0 +1,8 @@
+# Python包依赖
+PyMuPDF>=1.23.0      # PDF拆分功能
+pdf2image>=1.16.0    # PDF转PNG功能
+Pillow>=10.0.0       # 图像处理
+
+# 系统工具依赖（需要单独安装）:
+# - poppler (brew install poppler) - PDF转PNG所需
+# - pdfcrop (brew install basictex) - PDF裁剪所需

@@ -1,0 +1,11 @@
+[
+    {
+        "alignment": {
+            "horizontal": {
+                "placement": "right",
+                "width": 600,
+                "minHeight": 700
+            }
+        }
+    }
+]

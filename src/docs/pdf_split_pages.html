@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拆分PDF为单页</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                fontSize: '12px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto'
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 15px;
+            background: white;
+            font-size: 13px;
+        }
+        h1 {
+            color: #FF9500;
+            font-size: 22px;
+            margin: 0 0 10px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #FF9500;
+        }
+        h2 {
+            color: #333;
+            font-size: 15px;
+            margin: 12px 0 6px 0;
+        }
+        .desc {
+            color: #666;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        ul, ol {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 3px 0;
+        }
+        .mermaid {
+            background: #f8f9fa;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .note {
+            background: #fff3cd;
+            padding: 6px 8px;
+            margin: 8px 0;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        strong { color: #FF9500; }
+    </style>
+</head>
+<body>
+    <h1>📄 拆分PDF为单页</h1>
+    
+    <div class="desc">将多页PDF拆分为多个独立的单页PDF文件，自动创建文件夹组织。</div>
+
+    <h2>📝 输出规则</h2>
+    <div class="mermaid">
+graph TD
+    A["📄 report.pdf<br/>(25页)"] -->|拆分| B["📁 report_pages/"]
+    B --> C["📄 report_page_01.pdf"]
+    B --> D["📄 report_page_02.pdf"]
+    B --> E["📄 report_page_03.pdf"]
+    B --> F["..."]
+    B --> G["📄 report_page_25.pdf"]
+    style A fill:#fff8e8
+    style B fill:#e8f4f8
+    style C fill:#d4edda
+    style D fill:#d4edda
+    style E fill:#d4edda
+    style F fill:#f8f9fa
+    style G fill:#d4edda
+    </div>
+
+    <h2>✨ 特性</h2>
+    <ul>
+        <li><strong>完整拆分</strong>：所有页面独立保存</li>
+        <li><strong>自动组织</strong>：创建专门文件夹</li>
+        <li><strong>智能命名</strong>：页码自动补零对齐</li>
+        <li><strong>批量处理</strong>：支持多个文件</li>
+        <li><strong>保持质量</strong>：不重新渲染</li>
+    </ul>
+
+    <h2>🎯 使用场景</h2>
+    <ul>
+        <li>单独分享特定页面</li>
+        <li>每页分发给不同的人</li>
+        <li>提取大文档特定页面</li>
+        <li>制作单页海报/传单</li>
+        <li>逐页审阅编辑内容</li>
+        <li>试卷拆分为单题</li>
+    </ul>
+
+    <h2>📁 文件组织</h2>
+    <div class="mermaid">
+graph TD
+    A["原目录"] --> B["📄 document.pdf<br/>(原文件)"]
+    A --> C["📁 document_pages/<br/>(自动创建)"]
+    C --> D["📄 document_page_01.pdf"]
+    C --> E["📄 ..."]
+    style A fill:#f8f9fa
+    style B fill:#e8f4f8
+    style C fill:#fff8e8
+    style D fill:#d4edda
+    style E fill:#d4edda
+    </div>
+
+    <h2>📋 操作步骤</h2>
+    <ol>
+        <li>Finder中选中PDF文件</li>
+        <li>按 ⌘⇧A 唤起Universal Action</li>
+        <li>选择"PDF Operations"</li>
+        <li>选择"拆分PDF为单页"</li>
+        <li>等待完成，打开 _pages 文件夹</li>
+    </ol>
+
+    <div class="note">💡 页码根据总页数补零（如100页生成page_001到page_100）</div>
+    <div class="note">⚠️ 大文档(100+页)会生成大量文件，总大小可能增加，原文件不被修改</div>
+</body>
+</html>
